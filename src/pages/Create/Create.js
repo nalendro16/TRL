@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useCollection } from '../../hooks/useCollection'
+import { useFirestore } from '../../hooks/useFirestore'
 import { timestamp } from '../../firebase/config'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import Select from 'react-select'
 import './Create.css'
+import { useHistory } from 'react-router-dom'
 
 const categories = [
   { value: 'development', label: 'Development' },
@@ -22,6 +24,10 @@ export default function Create() {
 
   const { user } = useAuthContext()
   const { documents } = useCollection('users')
+  let history = useHistory()
+
+  const { addDocument, response } = useFirestore('projects')
+
   // array for options
   const [users, setUsers] = useState([])
 
@@ -72,8 +78,16 @@ export default function Create() {
       assignedUsersList: assignedUsersList,
     }
 
-    console.log(project)
+    addDocument(project)
   }
+  useEffect(() => {
+    async function check() {
+      if (response.success) {
+        await history.push('/')
+      }
+    }
+    check()
+  }, [response.success, history])
 
   return (
     <div className="create-form">

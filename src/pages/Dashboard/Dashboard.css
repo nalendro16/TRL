@@ -3,6 +3,7 @@
 }
 .project-filter nav {
   display: flex;
+  justify-content: center;
   padding: 10px;
   background-color: #fff;
   border-radius: 4px;
@@ -12,18 +13,23 @@
   margin-right: 10px;
 }
 .project-filter button {
+  margin: 2px 5px;
   background: transparent;
   border: 0;
   font-family: inherit;
   font-weight: bold;
   color: var(--text-color);
   cursor: pointer;
-  border-right: 1px solid #e4e4e4;
+  border: 1px solid #e4e4e4;
   font-size: 0.9em;
-}
-.project-filter button:last-child {
-  border: 0;
 }
 .project-filter button.active {
   color: var(--primary-color);
+  border: none;
+}
+@media only screen and (max-width: 1040px) {
+  .project-filter nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

@@ -1,8 +1,18 @@
 .App {
   display: flex;
   height: 960px;
+  position: relative;
 }
 .App .container {
+  position: relative;
   flex-grow: 1;
   padding: 0 60px;
+  margin: 0 250px 0 300px;
+}
+@media only screen and (max-width: 1044px) {
+  .App .container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
 }

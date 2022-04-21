@@ -14,13 +14,13 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <form className="auth-form" onSubmit={handleSubmit}>
+    <div className='login'>
+      <form className='auth-form' onSubmit={handleSubmit}>
         <h2>Login</h2>
         <label>
           <span>Email:</span>
           <input
-            type="email"
+            type='email'
             required
             onChange={(e) => {
               setEmail(e.target.value)
@@ -31,7 +31,7 @@ export default function Login() {
         <label>
           <span>Password:</span>
           <input
-            type="password"
+            type='password'
             required
             onChange={(e) => {
               setPassword(e.target.value)
@@ -41,12 +41,12 @@ export default function Login() {
         </label>
 
         {isPending && (
-          <button className="btn" disabled>
+          <button className='btn' disabled>
             Loading...
           </button>
         )}
-        {!isPending && <button className="btn">Login</button>}
-        {error && <div className="error">{error}</div>}
+        {!isPending && <button className='btn'>Login</button>}
+        {error && <div className='error'>{error}</div>}
       </form>
     </div>
   )

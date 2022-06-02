@@ -6,3 +6,4 @@ The React Lab is personal project for project manajement sistem like: monday.com
 
 
 ### `npm start`
+to install this project of course need to install node module first

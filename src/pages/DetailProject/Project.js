@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import Loader from '../../components/Loader'
 import { useDocuments } from '../../hooks/useDocuments'
 import './Project.css'
 import ProjectComment from './ProjectComment'
@@ -9,13 +10,13 @@ export default function Project() {
   const { documents, error } = useDocuments('projects', id)
 
   if (error) {
-    return <div className="error">{error}</div>
+    return <div className='error'>{error}</div>
   }
   if (!documents) {
-    return <div className="loading"> Loading ... </div>
+    return <Loader></Loader>
   }
   return (
-    <div className="project-details">
+    <div className='project-details'>
       <ProjectSummary project={documents} />
       <ProjectComment project={documents} />
     </div>
